@@ -7,6 +7,7 @@ const DonorPage = () => {
   const router = useRouter();
   const [projects, setProjects] = useState([]);
 
+
   useEffect(() => {
     // Fetch project data from an API or use sample data
     const sampleProjects = [
@@ -137,9 +138,9 @@ const DonorPage = () => {
                     style={{
                       width: `${(project.fundingRaised / project.fundingGoal) * 100}%`,
                     }}
-                  />
+                  ></div>
                   <span className={styles.fundingAmount}>
-                    {project.fundingRaised} / {project.fundingGoal}
+                    ${project.fundingRaised.toLocaleString()} / ${project.fundingGoal.toLocaleString()}
                   </span>
                 </div>
               </div>

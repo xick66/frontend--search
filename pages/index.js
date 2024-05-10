@@ -45,7 +45,7 @@ export default function Home() {
       </Head>
 
       <div className={styles.header}>
-        <button className={styles.donateButton} onClick={() => router.push('/donors_side')}>
+        <button className={styles.donateButton} onClick={() => router.push('/donor_side')}>
           Donate
         </button>
       </div>
