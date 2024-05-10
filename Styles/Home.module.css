@@ -1,0 +1,110 @@
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1f1f1f, #0a0a0a);
+  }
+  
+  .main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 3rem;
+    text-align: center;
+    color: #d1ff4f;
+    margin-bottom: 2rem;
+  }
+  
+  .gradientText {
+    background: linear-gradient(45deg, #d1ff4f, #f7ff6e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .searchContainer {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  
+  .searchInput {
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    width: 300px;
+    background-color: #2a2a2a;
+    color: #fff;
+  }
+  
+  .searchButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background: linear-gradient(45deg, #d1ff4f, #f7ff6e);
+    color: #1f1f1f;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .searchButton:hover {
+    background: linear-gradient(45deg, #f7ff6e, #d1ff4f);
+  }
+  
+  .resultsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .donorItem {
+    padding: 1.5rem;
+    background: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .donorItem:hover {
+    transform: translateY(-5px);
+  }
+  
+  .donorName {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #d1ff4f;
+  }
+  
+  .footer {
+    padding: 1rem;
+    text-align: center;
+    color: #d1ff4f;
+    background-color: #1f1f1f;
+    margin-top: 2rem;
+  }
+
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  
+  .donateButton {
+    background: linear-gradient(45deg, #d1ff4f, #f7ff6e);
+    color: #1f1f1f;
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .donateButton:hover {
+    background: linear-gradient(45deg, #f7ff6e, #d1ff4f);
+  }
