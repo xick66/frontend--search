@@ -81,6 +81,7 @@
   }
   
   .footer {
+    top: 500px;
     padding: 1rem;
     text-align: center;
     color: #d1ff4f;
