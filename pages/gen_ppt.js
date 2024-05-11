@@ -22,10 +22,11 @@ const DonorPage = () => {
     const handleSearch = async () => {
       try {
   
-        const response = await axios.post('https://localhost:8443/send-gen-ppt', { searchQuery }); // Change the URL to include port 
+        const response = await axios.post('http://localhost:8000/send-gen-ppt', { searchQuery }); // Change the URL to include port 
         console.log(response.data);
+        console.log("Goes....")
   
-        const req = await fetch("https://localhost:8443/revert-gen-ppt")
+        const req = await fetch("http://localhost:8000/revert-gen-ppt")
         .then(req =>  req.json())
         .then(
           (data) => { 
@@ -62,7 +63,9 @@ const DonorPage = () => {
             type="text"
             placeholder="Enter your NPO's description"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {setSearchQuery(e.target.value);
+                console.log(searchQuery);
+            }}
             className={styles.searchInput_long}
           />
           <button onClick={handleSearch} className={styles.searchButton}>
