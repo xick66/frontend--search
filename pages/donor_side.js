@@ -3,9 +3,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from '../styles/Home.module.css';
 
+
 const DonorPage = () => {
   const router = useRouter();
   const [projects, setProjects] = useState([]);
+  const [searchDonor, setsearchDonor] = useState("")
+  // const [searchDonor, setSearchDonor] = useState('');
 
 
   useEffect(() => {
@@ -121,6 +124,21 @@ const DonorPage = () => {
           <span className={styles.gradientText}>Donor Dashboard</span>
         </h1>
 
+        <div className={styles.searchContainer}>
+          <input
+            type="text"
+            placeholder="Search for NPOs "
+            value={searchDonor}
+            onChange={(e) => {setsearchDonor(e.target.value);
+              console.log(searchDonor);
+            }}
+            className={styles.searchInput}
+          />
+          <button  className={styles.searchButton}>
+            Search
+          </button>
+        </div>
+
         {projects.length > 0 && (
           <div className={styles.projectsContainer}>
             {projects.map((project) => (
@@ -132,7 +150,7 @@ const DonorPage = () => {
                 <img src={project.image} alt={project.title} className={styles.projectImage} />
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.projectDescription}>{project.description}</p>
-                <div className={styles.fundingProgress}>
+                {/* <div className={styles.fundingProgress}>
                   <div
                     className={styles.fundingBar}
                     style={{
@@ -142,7 +160,23 @@ const DonorPage = () => {
                   <span className={styles.fundingAmount}>
                     ${project.fundingRaised.toLocaleString()} / ${project.fundingGoal.toLocaleString()}
                   </span>
+                </div> */}
+                <div className={styles.volunteerProgress}>
+                  <div
+                    className={styles.volunteerBar2}
+                    style={{
+                      width: `${
+                        (project.fundingRaised / project.fundingGoal) *
+                        100
+                      }%`,
+                    }}
+                  />
+                  
                 </div>
+                <span className={styles.volunteerAmount}>
+                    ${project.fundingRaised.toLocaleString()} / {project.fundingGoal.toLocaleString()}
+                    
+                </span>
               </div>
             ))}
           </div>

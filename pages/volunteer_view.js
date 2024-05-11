@@ -203,6 +203,7 @@ const VolunteerView = () => {
                     <span className={styles.hostName}>{project.host.name}</span>
                   </div>
                 </div>
+
                 <div className={styles.volunteerProgress}>
                   <div
                     className={styles.volunteerBar}
@@ -218,6 +219,7 @@ const VolunteerView = () => {
                     volunteers
                   </span>
                 </div>
+                
                 <button
                   className={styles.volunteerButton}
                   onClick={() => handleVolunteerClick(project)}
