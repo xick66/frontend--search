@@ -1,92 +1,114 @@
-import { useState, useEffect, useRef } from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import styles from '../styles/Home.module.css';
+import { useState, useEffect, useRef } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import styles from "../styles/Home.module.css";
+import GitHubCalendar from 'react-github-calendar';
 
 const VolunteerView = () => {
   const router = useRouter();
   const [projects, setProjects] = useState([
     {
       id: 1,
-      title: 'Clean Water Initiative',
-      description: 'Providing clean and accessible water to underserved communities.',
-      image: '/project1.jpg',
-      location: 'Nairobi, Kenya',
+      title: "Clean Water Initiative",
+      description:
+        "Providing clean and accessible water to underserved communities.",
+      image: "/project1.jpg",
+      location: "Nairobi, Kenya",
       host: {
-        name: 'Jane Smith',
-        profilePicture: '/host1.jpg',
+        name: "Jane Smith",
+        profilePicture: "/host1.jpg",
       },
       volunteerNeeded: 25,
       volunteerJoined: 15,
     },
     {
       id: 2,
-      title: 'Reforestation Project',
-      description: 'Planting trees to combat deforestation and climate change.',
-      image: '/project2.jpg',
-      location: 'Amazon Rainforest, Brazil',
+      title: "Reforestation Project",
+      description: "Planting trees to combat deforestation and climate change.",
+      image: "/project2.jpg",
+      location: "Amazon Rainforest, Brazil",
       host: {
-        name: 'Michael Johnson',
-        profilePicture: '/host2.jpg',
+        name: "Michael Johnson",
+        profilePicture: "/host2.jpg",
       },
       volunteerNeeded: 50,
       volunteerJoined: 30,
     },
     {
       id: 3,
-      title: 'Education Empowerment',
-      description: 'Improving access to quality education for underprivileged children.',
-      image: '/project3.jpg',
-      location: 'New Delhi, India',
+      title: "Education Empowerment",
+      description:
+        "Improving access to quality education for underprivileged children.",
+      image: "/project3.jpg",
+      location: "New Delhi, India",
       host: {
-        name: 'Sarah Lee',
-        profilePicture: '/host3.jpg',
+        name: "Sarah Lee",
+        profilePicture: "/host3.jpg",
       },
       volunteerNeeded: 40,
       volunteerJoined: 25,
     },
     {
       id: 4,
-      title: 'Animal Welfare Program',
-      description: 'Protecting and rehabilitating endangered animal species.',
-      image: '/project4.jpg',
-      location: 'Serengeti National Park, Tanzania',
+      title: "Animal Welfare Program",
+      description: "Protecting and rehabilitating endangered animal species.",
+      image: "/project4.jpg",
+      location: "Serengeti National Park, Tanzania",
       host: {
-        name: 'David Nguyen',
-        profilePicture: '/host4.jpg',
+        name: "David Nguyen",
+        profilePicture: "/host4.jpg",
       },
       volunteerNeeded: 30,
       volunteerJoined: 20,
     },
     {
       id: 5,
-      title: 'Disaster Relief Efforts',
-      description: 'Providing aid and support during natural disasters and emergencies.',
-      image: '/project5.jpg',
-      location: 'Puerto Rico, USA',
+      title: "Disaster Relief Efforts",
+      description:
+        "Providing aid and support during natural disasters and emergencies.",
+      image: "/project5.jpg",
+      location: "Puerto Rico, USA",
       host: {
-        name: 'Olivia Hernandez',
-        profilePicture: '/host5.jpg',
+        name: "Olivia Hernandez",
+        profilePicture: "/host5.jpg",
       },
       volunteerNeeded: 45,
       volunteerJoined: 35,
     },
   ]);
   const [userInfo, setUserInfo] = useState({
-    name: 'John Doe',
+    name: "John Doe",
     karmaPoints: 150,
-    profilePicture: '/profile.jpg',
+    profilePicture: "/profile.jpg",
     activityHistory: [
-      { id: 1, activity: 'Volunteered for Clean Water Initiative', date: '2023-05-10' },
-      { id: 2, activity: 'Planted 20 trees for Reforestation Project', date: '2023-05-08' },
-      { id: 3, activity: 'Tutored 10 children for Education Empowerment', date: '2023-05-05' },
-      { id: 4, activity: 'Donated supplies for Disaster Relief Efforts', date: '2023-05-02' },
+      {
+        id: 1,
+        activity: "Volunteered for Clean Water Initiative",
+        date: "2023-05-10",
+      },
+      {
+        id: 2,
+        activity: "Planted 20 trees for Reforestation Project",
+        date: "2023-05-08",
+      },
+      {
+        id: 3,
+        activity: "Tutored 10 children for Education Empowerment",
+        date: "2023-05-05",
+      },
+      {
+        id: 4,
+        activity: "Donated supplies for Disaster Relief Efforts",
+        date: "2023-05-02",
+      },
     ],
   });
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const contributionDays = Array.from({ length: 84 }, () => ({
-    date: new Date(Date.now() - Math.floor(Math.random() * 90) * 24 * 60 * 60 * 1000),
+    date: new Date(
+      Date.now() - Math.floor(Math.random() * 90) * 24 * 60 * 60 * 1000
+    ),
     hours: Math.random() < 0.2 ? Math.floor(Math.random() * 5) + 1 : 0,
   }));
 
@@ -96,12 +118,34 @@ const VolunteerView = () => {
   };
 
   const handleCreateInitiative = () => {
-    console.log('Creating a new initiative');
+    console.log("Creating a new initiative");
   };
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prevState) => !prevState);
   };
+
+
+
+  const selectLastHalfYear = contributions => {
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const shownMonths = 6;
+  
+    return contributions.filter(activity => {
+      const date = new Date(activity.date);
+      const monthOfDay = date.getMonth();
+  
+      return (
+        date.getFullYear() === currentYear &&
+        monthOfDay > currentMonth - shownMonths &&
+        monthOfDay <= currentMonth
+      );
+    });
+  };
+
+
+
 
   return (
     <div className={styles.container}>
@@ -110,7 +154,9 @@ const VolunteerView = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={`${styles.main} ${isSidebarOpen ? styles.mainShrink : ''}`}>
+      <div
+        className={`${styles.main} ${isSidebarOpen ? styles.mainShrink : ""}`}
+      >
         <h1 className={styles.title}>
           <span className={styles.gradientText}>Volunteer Opportunities</span>
         </h1>
@@ -118,10 +164,16 @@ const VolunteerView = () => {
         <div className={styles.projectsContainer}>
           {projects.map((project) => (
             <div key={project.id} className={styles.projectCard}>
-              <img src={project.image} alt={project.title} className={styles.projectImage} />
+              <img
+                src={project.image}
+                alt={project.title}
+                className={styles.projectImage}
+              />
               <div className={styles.projectContent}>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectDescription}>{project.description}</p>
+                <p className={styles.projectDescription}>
+                  {project.description}
+                </p>
                 <div className={styles.projectDetails}>
                   <div className={styles.projectLocation}>
                     <svg
@@ -138,7 +190,9 @@ const VolunteerView = () => {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className={styles.locationText}>{project.location}</span>
+                    <span className={styles.locationText}>
+                      {project.location}
+                    </span>
                   </div>
                   <div className={styles.projectHost}>
                     <img
@@ -153,11 +207,15 @@ const VolunteerView = () => {
                   <div
                     className={styles.volunteerBar}
                     style={{
-                      width: `${(project.volunteerJoined / project.volunteerNeeded) * 100}%`,
+                      width: `${
+                        (project.volunteerJoined / project.volunteerNeeded) *
+                        100
+                      }%`,
                     }}
                   />
                   <span className={styles.volunteerAmount}>
-                    {project.volunteerJoined} / {project.volunteerNeeded} volunteers
+                    {project.volunteerJoined} / {project.volunteerNeeded}{" "}
+                    volunteers
                   </span>
                 </div>
                 <button
@@ -173,12 +231,14 @@ const VolunteerView = () => {
       </div>
 
       <div
-        className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : styles.sidebarClosed}`}
+        className={`${styles.sidebar} ${
+          isSidebarOpen ? styles.sidebarOpen : styles.sidebarClosed
+        }`}
       >
         <button className={styles.sidebarToggle} onClick={toggleSidebar}>
           <svg
             className={`${styles.sidebarToggleIcon} ${
-              isSidebarOpen ? '' : styles.sidebarToggleIconRotated
+              isSidebarOpen ? "" : styles.sidebarToggleIconRotated
             }`}
             viewBox="0 0 24 24"
             fill="none"
@@ -192,6 +252,11 @@ const VolunteerView = () => {
               strokeLinejoin="round"
             />
           </svg>
+
+          {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <path fill="none" d="M0 0h24v24H0z"/>
+  <path d="M8.59 16.34l5.3-5.3a.996.996 0 0 0 0-1.41l-5.3-5.3a.996.996 0 1 0-1.41 1.41L11.17 12l-3.89 3.89a.996.996 0 1 0 1.41 1.41z"/>
+</svg> */}
         </button>
 
         <div className={styles.profilePreview}>
@@ -221,7 +286,8 @@ const VolunteerView = () => {
 
         <div className={styles.activityGraph}>
           <h3 className={styles.activityGraphTitle}>Contribution Overview</h3>
-          <div className={styles.contributionGraph}>
+
+          {/* <div className={styles.contributionGraph}>
             <div className={styles.contributionMonths}>
               {['Apr', 'May', 'Jun'].map((month, index) => (
                 <div key={index} className={styles.monthLabel}>
@@ -251,12 +317,34 @@ const VolunteerView = () => {
                 />
               ))}
             </div>
+          </div> */}
+
+          <div>
+
+          <GitHubCalendar
+            username="grubersjoe"
+            transformData={selectLastHalfYear}
+            hideColorLegend
+            colorScheme = "dark"
+            
+            labels={{
+              totalCount: "{{count}} contributions in the last half year",
+            }}
+          />
+
           </div>
+
+         
+
+
         </div>
       </div>
 
-      <div className={styles.createInitiative}>
-        <button className={styles.createButton} onClick={handleCreateInitiative}>
+      {/* <div className={styles.createInitiative}>
+        <button
+          className={styles.createButton}
+          onClick={handleCreateInitiative}
+        >
           <svg
             className={styles.createIcon}
             viewBox="0 0 24 24"
@@ -272,7 +360,7 @@ const VolunteerView = () => {
             />
           </svg>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
