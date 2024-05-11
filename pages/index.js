@@ -56,7 +56,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <span className={styles.gradientText}>Semantic Search</span> for Donors
+          <span className={styles.gradientText}>XYZ</span>
         </h1>
 
         <div className={styles.searchContainer}>
@@ -88,9 +88,9 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <p>&copy; 2023 Semantic Search for Donors. All rights reserved.</p>
-      </footer>
+      </footer> */}
     </div>
   );
 }
