@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
+import VolunteerView from './volunteer_view';
+
 export default function Home() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
@@ -93,4 +95,4 @@ export default function Home() {
       </footer> */}
     </div>
   );
-
+    }
