@@ -24,7 +24,7 @@ const DonorPage = () => {
   
         const response = await axios.post('http://localhost:8000/send-gen-ppt', { searchQuery }); // Change the URL to include port 
         console.log(response.data);
-        console.log("Goes....")
+       
   
         const req = await fetch("http://localhost:8000/revert-gen-ppt")
         .then(req =>  req.json())

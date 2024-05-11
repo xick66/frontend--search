@@ -1,5 +1,8 @@
 
 
+
+
+
 .container {
   min-height: 100vh;
   background: linear-gradient(135deg, #1f1f1f, #0a0a0a);
@@ -11,6 +14,12 @@
   flex-direction: column;
   align-items: center;
 }
+
+
+.mainShrink {
+  flex: 0.8;
+}
+
 
 .title {
   margin: 0;
@@ -27,9 +36,393 @@
   -webkit-text-fill-color: transparent;
 }
 
+.projectsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+
+.projectCard {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-10px);
+}
+
+
+.projectImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.projectContent {
+  padding: 1.2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.projectTitle {
+  font-size: 1.6rem;
+  background: linear-gradient(45deg, #f7ff6e, #d1ff4f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.75rem;
+}
+
+.projectDescription {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+
+.projectDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.projectLocation {
+  display: flex;
+  align-items: center;
+  color: #d1ff4f;
+  font-size: 0.9rem;
+}
+
+.locationIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.4rem;
+}
+
+
+.projectHost {
+  display: flex;
+  align-items: center;
+}
+
+.hostProfilePicture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.hostName {
+  font-size: 0.9rem;
+  color: #d1ff4f;
+}
+
+
+.volunteerProgress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a3a3a;
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.volunteerBar {
+  height: 10px;
+  background-color: #0f07ff;
+  border-radius: 10px;
+}
+
+
+.volunteerAmount {
+  font-size: 0.8rem;
+  color: #d1ff4f;
+  margin-left: 0.8rem;
+}
+
+.volunteerButton {
+  background: linear-gradient(45deg, #d1ff4f, #f7ff6e);
+  color: #1f1f1f;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+
+.volunteerButton:hover {
+  background: linear-gradient(45deg, #f7ff6e, #d1ff4f);
+}
+
+.sidebar {
+  flex: 0;
+  background-color: #2a2a2a;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: flex 0.3s ease;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.sidebarOpen {
+  flex: 0.2;
+  max-width: 300px;
+  right: 0;
+}
+
+.sidebarClosed {
+  flex: 0;
+  padding: 0;
+  right: -300px;
+}
+
+.sidebarClosed .profilePreview,
+.sidebarClosed .activityHistory,
+.sidebarClosed .activityGraph {
+  display: none;
+}
+
+
+.sidebarToggle {
+  position:relative;
+  margin-right: 18.8rem;
+  /* left: -3rem; */
+ 
+  background-color: rgb(121, 238, 53);
+  border: none;
+  border-radius: 20%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.sidebarToggle:hover {
+  transform: scale(1.2);
+  z-index: 100;
+}
+
+
+.sidebarToggleIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  /* stroke: #d1ff4f; */
+  transition: transform 0.3s ease;
+}
+
+.sidebarToggleIconRotated {
+  margin-left: 16rem;
+  padding: 1rem;
+  transform: rotate(180deg);
+  z-index: 100;
+  width: 2rem;
+  height: 2rem;
+
+}
+
 .searchContainer {
   display: flex;
   margin-bottom: 2rem;
+}
+
+.profilePreview,
+.activityHistory,
+.activityGraph {
+  width: 100%;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #d1ff4f;
+}
+
+.profilePicture {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+}
+
+.profileName {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.karmaPoints {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.karmaLabel {
+  margin-right: 0.5rem;
+}
+
+.karmaValue {
+  font-weight: bold;
+}
+
+.activityHistory {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 1rem;
+}
+
+.activityTitle {
+  font-size: 1.2rem;
+  color: #d1ff4f;
+  margin-bottom: 1rem;
+}
+
+.activityItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.activityText {
+  font-size: 0.9rem;
+}
+
+.activityDate {
+  font-size: 0.8rem;
+  color: #d1ff4f;
+}
+
+.activityGraph {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.activityGraphTitle {
+  font-size: 1rem;
+  color: #d1ff4f;
+  margin-bottom: 0.5rem;
+}
+
+.contributionGraph {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 4px;
+}
+
+.contributionWeekdays,
+.contributionMonths {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #d1ff4f;
+}
+
+.contributionWeekdays {
+  grid-row: 1;
+}
+
+.contributionMonths {
+  grid-column: 1;
+  grid-row: 2 / -1;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.contributionDays {
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
+}
+
+.contributionDay {
+  width: 10px;
+  height: 10px;
+  background-color: #3a3a3a;
+  border-radius: 2px;
+}
+
+.contributionDay.contributionLevel1 {
+  background-color: #9be9a8;
+}
+
+.contributionDay.contributionLevel2 {
+  background-color: #40c463;
+}
+
+.contributionDay.contributionLevel3 {
+  background-color: #30a14e;
+}
+
+.contributionDay.contributionLevel4 {
+  background-color: #216e39;
+}
+
+.createInitiative {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 3;
+}
+
+.createButton {
+  background: linear-gradient(45deg, #d1ff4f, #f7ff6e);
+  border: none;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.createButton:hover {
+  transform: scale(1.1);
+}
+
+.createIcon {
+  width: 2rem;
+  height: 2rem;
+  stroke: #1f1f1f;
 }
 
 .searchInput {
