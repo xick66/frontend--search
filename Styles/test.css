@@ -1,25 +1,22 @@
-
-
-
-
-
 .container {
   min-height: 100vh;
   background: linear-gradient(135deg, #1f1f1f, #0a0a0a);
+  display: flex;
 }
 
 .main {
+  flex: 1;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: flex 0.3s ease;
+  overflow-y: auto;
 }
-
 
 .mainShrink {
   flex: 0.8;
 }
-
 
 .title {
   margin: 0;
@@ -43,7 +40,6 @@
   width: 100%;
 }
 
-
 .projectCard {
   background-color: #2a2a2a;
   color: #fff;
@@ -59,7 +55,6 @@
   transform: translateY(-10px);
 }
 
-
 .projectImage {
   width: 100%;
   height: 150px;
@@ -73,7 +68,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
 
 .projectTitle {
   font-size: 1.6rem;
@@ -89,7 +83,6 @@
   margin-bottom: 1.2rem;
   flex-grow: 1;
 }
-
 
 .projectDetails {
   display: flex;
@@ -111,7 +104,6 @@
   margin-right: 0.4rem;
 }
 
-
 .projectHost {
   display: flex;
   align-items: center;
@@ -129,7 +121,6 @@
   color: #d1ff4f;
 }
 
-
 .volunteerProgress {
   display: flex;
   justify-content: space-between;
@@ -145,7 +136,6 @@
   background-color: #0f07ff;
   border-radius: 10px;
 }
-
 
 .volunteerAmount {
   font-size: 0.8rem;
@@ -163,7 +153,6 @@
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 
 .volunteerButton:hover {
   background: linear-gradient(45deg, #f7ff6e, #d1ff4f);
@@ -203,7 +192,6 @@
   display: none;
 }
 
-
 .sidebarToggle {
   position: absolute;
   top: 2rem;
@@ -226,7 +214,6 @@
   transform: scale(1.1);
 }
 
-
 .sidebarToggleIcon {
   width: 1.5rem;
   height: 1.5rem;
@@ -236,11 +223,6 @@
 
 .sidebarToggleIconRotated {
   transform: rotate(180deg);
-}
-
-.searchContainer {
-  display: flex;
-  margin-bottom: 2rem;
 }
 
 .profilePreview,
@@ -267,7 +249,6 @@
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
-
 
 .karmaPoints {
   font-size: 1rem;
@@ -415,106 +396,4 @@
   width: 2rem;
   height: 2rem;
   stroke: #1f1f1f;
-}
-
-.searchInput {
-  padding: 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 30px 0 0 30px;
-  width: 300px;
-  background-color: #2a2a2a;
-  color: #fff;
-}
-
-
-.searchInput_long {
-  padding: 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 30px 0 0 30px;
-  width: 500px;
-  background-color: #2a2a2a;
-  color: #fff;
-}
-
-.searchInput2 {
-  padding: 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 30px 30px 30px 30px;
-  width: 550px;
-  background-color: #2a2a2a;
-  color: #fff;
-}
-
-.searchButton {
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  background: linear-gradient(45deg, #d1ff4f, #f7ff6e);
-  color: #1f1f1f;
-  border: none;
-  border-radius: 0 30px 30px 0;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.searchButton:hover {
-  background: linear-gradient(45deg, #f7ff6e, #d1ff4f);
-}
-
-.resultsContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  width: 100%;
-  color: #d1ff4f;
-}
-
-.donorItem {
-  padding: 1.5rem;
-  background: #2a2a2a;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.donorItem:hover {
-  transform: translateY(-5px);
-}
-
-.donorName {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #d1ff4f;
-}
-
-.footer {
-  top: 500px;
-  padding: 1rem;
-  text-align: center;
-  color: #d1ff4f;
-  background-color: #1f1f1f;
-  margin-top: 2rem;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 1rem;
-}
-
-.donateButton {
-  background: linear-gradient(45deg, #d1ff4f, #f7ff6e);
-  color: #1f1f1f;
-  border: none;
-  border-radius: 30px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.donateButton:hover {
-  background: linear-gradient(45deg, #f7ff6e, #d1ff4f);
 }
