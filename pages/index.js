@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      
+
       <Head>
         <title>Semantic Search for Donors</title>
         <link rel="icon" href="/favicon.ico" />
@@ -83,6 +83,7 @@ export default function Home() {
           {searchResults.map((name,index) =>(
             <div key={index} className={styles.donorItem}>
               <h3 className={styles.donorName}>{name}</h3>
+            
             </div>
           ))}
 
