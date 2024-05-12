@@ -12,74 +12,74 @@ const VolunteerView = () => {
       title: "Clean Water Initiative",
       description:
         "Providing clean and accessible water to underserved communities.",
-      image: "/project1.jpg",
-      location: "Nairobi, Kenya",
+      image: "/images/cleanwater.jpeg",
+      location: "Kengeri, Bengaluru",
       host: {
-        name: "Jane Smith",
-        profilePicture: "/host1.jpg",
+        name: "Anand Kumar",
+        profilePicture: "/images/anandkumar.jpeg",
       },
       volunteerNeeded: 25,
-      volunteerJoined: 15,
+      volunteerJoined: 9,
     },
     {
       id: 2,
       title: "Reforestation Project",
       description: "Planting trees to combat deforestation and climate change.",
-      image: "/project2.jpg",
-      location: "Amazon Rainforest, Brazil",
+      image: "/images/reforestation.jpeg",
+      location: "Mathikere, Bengaluru",
       host: {
-        name: "Michael Johnson",
-        profilePicture: "/host2.jpg",
+        name: "Krishna",
+        profilePicture: "/images/krishna.jpeg",
       },
       volunteerNeeded: 50,
-      volunteerJoined: 30,
+      volunteerJoined: 41,
     },
     {
       id: 3,
       title: "Education Empowerment",
       description:
         "Improving access to quality education for underprivileged children.",
-      image: "/project3.jpg",
-      location: "New Delhi, India",
+      image: "/images/education.jpeg",
+      location: "Aahwahan Foundation",
       host: {
-        name: "Sarah Lee",
-        profilePicture: "/host3.jpg",
+        name: "Sheela",
+        profilePicture: "/images/Sheela.jpeg",
       },
-      volunteerNeeded: 40,
-      volunteerJoined: 25,
+      volunteerNeeded: 10,
+      volunteerJoined: 6,
     },
     {
       id: 4,
       title: "Animal Welfare Program",
-      description: "Protecting and rehabilitating endangered animal species.",
-      image: "/project4.jpg",
-      location: "Serengeti National Park, Tanzania",
+      description: "Protecting and rehabilitating stray dogs.",
+      image: "/images/animalwelfare.jpg",
+      location: "Sarvoham Foundation",
       host: {
-        name: "David Nguyen",
-        profilePicture: "/host4.jpg",
+        name: "Chethan Shetty",
+        profilePicture: "/images/Chethan.jpeg",
       },
-      volunteerNeeded: 30,
-      volunteerJoined: 20,
+      volunteerNeeded: 15,
+      volunteerJoined: 11,
     },
     {
       id: 5,
       title: "Disaster Relief Efforts",
       description:
         "Providing aid and support during natural disasters and emergencies.",
-      image: "/project5.jpg",
-      location: "Puerto Rico, USA",
+      image: "/images/disaster.jpeg",
+      location: "Assam",
       host: {
-        name: "Olivia Hernandez",
-        profilePicture: "/host5.jpg",
+        name: "Olivia",
+        profilePicture: "/images/olivia.jpeg",
       },
       volunteerNeeded: 45,
       volunteerJoined: 35,
     },
   ]);
   const [userInfo, setUserInfo] = useState({
-    name: "John Doe",
+    name: "Rahul",
     karmaPoints: 150,
-    profilePicture: "/profile.jpg",
+    profilePicture: "/images/my face (1).jpg",
     activityHistory: [
       {
         id: 1,
@@ -206,7 +206,7 @@ const VolunteerView = () => {
 
                 <div className={styles.volunteerProgress}>
                   <div
-                    className={styles.volunteerBar}
+                    className={styles.volunteerBar2}
                     style={{
                       width: `${
                         (project.volunteerJoined / project.volunteerNeeded) *
@@ -214,11 +214,13 @@ const VolunteerView = () => {
                       }%`,
                     }}
                   />
-                  <span className={styles.volunteerAmount}>
+                  
+                </div>
+                
+                <span className={styles.volunteerAmount}>
                     {project.volunteerJoined} / {project.volunteerNeeded}{" "}
                     volunteers
-                  </span>
-                </div>
+                </span>
                 
                 <button
                   className={styles.volunteerButton}
