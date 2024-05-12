@@ -544,6 +544,22 @@
 
 /* Modal CSS for pop-ups */
 
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+  background: linear-gradient(45deg, #f7ff6e, #d1ff4f);
+  font-family: 'Poppins', sans-serif !important;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  outline: none;
+  padding: 1rem;
+  overflow: auto;
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -551,33 +567,187 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 1000;
 }
 
-.modal {
+.modalContent {
   position: relative;
-  background-color: black;
-  color: white;
-  border-radius: 4px;
-  max-width: 1000px;
-  width: 90%;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .closeButton {
   position: absolute;
-  top: 10px;
-  color: #9cfc27;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   background-color: transparent;
   border: none;
-  font-size: 45px;
+  font-size: 1.5rem;
   cursor: pointer;
 }
-.popupTitle{
-  color: #9cfc27;
+
+.popupContainer {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.popupImage {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.popupTitle {
   font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.popupDescription {
+  margin-bottom: 1rem;
+}
+
+.deliverables {
+  margin-top: 2rem;
+}
+
+.deliverableTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.deliverableList {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.deliverableList li {
+  margin-bottom: 0.5rem;
+}
+
+.financialsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.flows {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flowTitle {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.donateButton2 {
+  background-color: #000000; /* Black background color */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 20px;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 7px;
+}
+
+.donateButton2:hover {
+  background-color: white;
+  color: black;
+  border: black 2px solid;
+}
+
+.iconButton {
+  background-color: transparent;
+  border: none;
+  
+  font-size: 0.8rem; /* Reduced font size */
+  cursor: pointer;
+  padding: 0.2rem; /* Reduced padding */
+  transition: color 0.2s ease-in-out;
+  position: absolute; /* Added position: absolute */
+  right: 1rem; /* Shifted to the right */
+  top: 50%; /* Vertically centered */
+  transform: translateY(-50%); /* Vertically centered */
+  overflow: hidden;
+}
+
+/* .iconButton:hover {
+  color: #333;
+} */
+
+
+.hamcontainer {
+  position: relative;
+}
+
+.hamburger {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.line {
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  transition: transform 0.3s ease-in-out;
+}
+
+.open:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.open:nth-child(2) {
+  opacity: 0;
+}
+
+.open:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #1f1f1f;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.menuItem {
+  margin-top: 3rem;
+  font-size: 18px;
+  color: #9cfc27;;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+.menuItem:hover {
+  color: #666666;
 }

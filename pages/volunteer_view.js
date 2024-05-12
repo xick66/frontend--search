@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import GitHubCalendar from 'react-github-calendar';
+import HamburgerMenu from "./hamburger";
 
 const VolunteerView = () => {
   const router = useRouter();
@@ -153,6 +154,8 @@ const VolunteerView = () => {
         <title>Volunteer View</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <HamburgerMenu/>
 
       <div
         className={`${styles.main} ${isSidebarOpen ? styles.mainShrink : ""}`}
